@@ -1,1 +1,1 @@
-# MauiApp1
+# CollectionView, MVVM MauiApp
