@@ -4,47 +4,52 @@
              xmlns:vm="clr-namespace:MauiApp1"
              x:DataType="vm:MainPageViewModel"
              x:Class="MauiApp1.MainPage">
-    <VerticalStackLayout>
+    <!--<ScrollView>-->
+        
+        <VerticalStackLayout
+            Padding="20">
 
-        <Label
-            Text="Cars List"
-            TextColor="Black"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="Start"/>
+            <Label
+                Text="Drivers List"
+                TextColor="Black"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start"/>
 
-        <CollectionView
-            ItemsSource="{Binding Drivers}"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="StartAndExpand"
-            Margin="0,20,0,0">
-            <CollectionView.EmptyView>
-                <VerticalStackLayout>
-                    <Label
-                        Text="No drivers!"
-                        TextColor="Black"
-                        HorizontalOptions="CenterAndExpand"
-                        VerticalOptions="CenterAndExpand"/>
-                </VerticalStackLayout>
-            </CollectionView.EmptyView>
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout
-                        Orientation="Vertical"
-                        VerticalItemSpacing="10"/>
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
+            <CollectionView
+                ItemsSource="{Binding Drivers}"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="StartAndExpand"
+                Margin="0,20,0,0">
+                <CollectionView.EmptyView>
                     <VerticalStackLayout>
                         <Label
-                            Text="{Binding Name}"
-                            TextColor="Black"/>
-                        <Label
-                            Text="{Binding Car.Make}"
-                            TextColor="Black"/>
+                            Text="No drivers!"
+                            TextColor="Black"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
                     </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                            Orientation="Vertical"
+                            VerticalItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:Driver">
+                        <VerticalStackLayout>
+                            <Label
+                                Text="{Binding Name}"
+                                TextColor="Black"/>
+                            <Label
+                                Text="{Binding Car.Make}"
+                                TextColor="Black"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+        
+    <!--</ScrollView>-->
 
 </ContentPage>
